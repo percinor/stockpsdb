@@ -1,0 +1,87 @@
+{"orin":
+[
+    {
+        "sqlst": "INSERT INTO public.stcode(jsid, scode, sname ) VALUES ",        
+        "sid": "i00",
+        "disp": "00 stock_zh_a_spot_em 实时行情数据-东财  沪深京 A 股",
+        "sql02": "  select count(sid) as counter from public.stcode ; ",
+        "memo":" orin main 初始化插入所有证券代码"
+    },
+    {
+        "sqlst": "select scode from public.stcode  ORDER BY sid ;",        
+        "sid": "s01",
+        "disp": "01 选出所有证券代码",
+        "sql02": " ",
+        "memo":"or01 选出所有证券代码"
+    },
+    {
+        "sqlst": "CREATE TABLE IF NOT EXISTS public.A"  ,        
+        "sid": "c02",
+        "disp": "02 创建每个股票号码表",
+        "sql02": " (  aid SERIAL PRIMARY KEY,  scode character varying(10) COLLATE pg_catalog.default NOT NULL,  sdate date,  opening money,  closing money,  highest money,  lowest money,  quanty integer,  amout money,  vibration numeric(8,2),  across numeric(8,2),  hlprice money,  turnvlo numeric(8,2)  ) ;",
+        "memo":"or02 创建每个证券表"
+    },
+    {
+        "sqlst": "INSERT INTO public.A",        
+        "sid": "i03",
+        "disp": "03 insert 每个股票的交易记录",
+        "sql02": " (sdate,opening,closing,highest,lowest,quanty,amout,vibration,across,hlprice,turnvlo,scode) VALUES ",
+        "memo":"or03 录入每个股票的交易记录"
+    },
+    {
+        "sqlst": "CREATE TABLE IF NOT EXISTS public.stcode  (  sid SERIAL PRIMARY KEY,  jsid integer NOT NULL,  scode character varying(10) COLLATE pg_catalog.default NOT NULL,  sname character varying(25) COLLATE pg_catalog.default NOT NULL  ) ;",        
+        "sid": "C04",
+        "disp": "04 创建所有股票号码",
+        "sql02": " ",
+        "memo":"or04 "
+    },
+    { 
+        "sqlst":"CREATE TABLE IF NOT EXISTS public.report ( sid SERIAL PRIMARY KEY, jsid integer NOT NULL, scode character varying(10) COLLATE pg_catalog.default NOT NULL, sname character varying(25), perprofit money, revenue money, revgsame numeric(8,2), revgon numeric(8,2), profitsum money, progsame numeric(8,2), progon numeric(8,2), equity money, equrate numeric(8,2), caflow money, prorate numeric(8,2), industry character varying(25) , rdate date ) ;",
+        "sid": "C05",
+        "disp": "05 CREATE股票季报",
+        "sql02": " ",
+        "memo":"or05 "
+    },
+    {
+        "sqlst":"",
+        "sid": "",
+        "disp": "",
+        "sql02": " ",
+        "memo":"or05 "
+
+    }
+],
+"eve":[
+    {
+        "sqlst":"INSERT INTO public.report(jsid, scode, sname, perprofit, revenue, revgsame, revgon, profitsum, progsame, progon, equity, equrate, caflow, prorate, industry, rdate) VALUES ",
+        "sid": "i06",
+        "disp": "06 INSERT 股票季报",
+        "sql02": " ",
+        "memo":"or20 "
+
+    },
+    { 
+        "sqlst":"",
+        "sid": "",
+        "disp": "",
+        "sql02": " ",
+        "memo":"or05 "
+    }   
+    ],
+"test":[
+    {    
+        "sqlst": "select scode from public.stcode  ORDER BY sid limit 7",        
+        "sid": "test",
+        "disp": "00 选出所有证券代码",
+        "sql02": " ",
+        "memo":"test 选出所有证券代码"
+    },
+    { 
+        "sqlst":"",
+        "sid": "",
+        "disp": "",
+        "sql02": " ",
+        "memo":"or05 "
+    }   
+    ]
+}

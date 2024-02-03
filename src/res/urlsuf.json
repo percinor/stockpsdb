@@ -1,0 +1,54 @@
+{"orin":[
+    {
+        "surl": "stock_zh_a_spot_em",
+        "sid": "00",
+        "disp": "实时行情数据-东财  沪深京 A 股"
+    },
+    {
+        "surl": "stock_zh_a_hist?symbol=",
+        "sid": "01",
+        "disp": "每个股票数据"
+    }
+],
+"eve":[
+    {
+        "surl":"stock_yjbb_em?date=",
+        "sid": "00",
+        "disp": "业绩报表 年报季报 date=; choice of {XXXX0331, XXXX0630, XXXX0930, XXXX1231}; 从 20100331 开始"
+    },
+    {
+        "surl":"stock_yysj_em?date=",
+        "sid": "01",
+        "disp": "预约披露时间 date=; choice of {XXXX0331, XXXX0630, XXXX0930, XXXX1231}; 从 20100331 开始"
+    }
+
+],
+"test":[
+    {
+        "surl": "stock_info_sz_name_code",
+        "s01": "深圳市场股票编号",
+        "s02": "01 msg"
+    },
+    {
+        "surl": "stock_info_sh_name_code",
+        "s01": "上海市场股票编号",
+        "s02": "error msg"
+    },
+    {
+        "surl": "stock_info_bj_name_code",
+        "s01": "北交所股票编号",
+        "s02": "error msg"
+    },
+    {
+        "surl": "stock_info_a_code_name",
+        "s01": "沪深京 A 股股票代码和股票简称数据",
+        "s02": "error msg"
+    },
+    {
+        "surl": "stock_zh_a_hist?symbol=301301&start_date=20230920",
+        "s01": "testurl",
+        "s02": "00 msg"
+    }
+
+]
+}
